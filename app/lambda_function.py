@@ -32,7 +32,7 @@ def generate_stock_chart_image():
     """
     dataframe = pd.read_csv(
         f"/tmp/{str(today)}.csv", index_col=0, parse_dates=True)
-    # The return value `Date` from stooq is sorted by asc, so change it to desc for plot
+    # The return value `Date` from yahoofinance is sorted by asc, so change it to desc for plot
     dataframe = dataframe.sort_values('Date')
     mpf.plot(dataframe, type='candle', figratio=(12, 4),
              volume=True, mav=(5, 25), style='sas',
