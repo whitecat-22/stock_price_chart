@@ -3,6 +3,11 @@
 指定した銘柄の株価（直近から6ヶ月前まで）を取得し、作成した株価と出来高のチャートをSlackへ定刻で通知します。  
 データソースは、https://finance.yahoo.com/
 
+　
+
+[Python&Lambda(+ServerlessFramework)で指定した企業の株価データとチャート図を定期的にSlack通知する](https://zenn.dev/whitecat_22/articles/aa413e426246e5)
+
+　
 
 - ^N225 の直近6ヶ月間の株価と出来高の推移をチャートにしたもの
 
