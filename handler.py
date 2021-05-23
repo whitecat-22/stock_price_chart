@@ -19,6 +19,7 @@ from dotenv import load_dotenv
 from dateutil.relativedelta import relativedelta
 
 from notifiers import slack
+from notifiers import twitter
 
 import json
 import logging
@@ -97,6 +98,7 @@ def lambdahandler(event, context):
             # Send only the most recent data to Slack notification
             if i == 0:
                 slack.Slack(today, row).post()
+                twitter.Twitter(today, row).post()
 
     return {
         'statusCode': 200,

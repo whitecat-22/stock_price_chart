@@ -20,3 +20,4 @@ six
 slack-sdk
 urllib3
 boto3
+tweepy
