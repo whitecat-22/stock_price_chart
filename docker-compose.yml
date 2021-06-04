@@ -1,0 +1,8 @@
+version: '3'
+services:
+  talib:
+    restart: always
+    build: .
+    container_name: 'talib'
+    working_dir: '/root/'
+    tty: true
