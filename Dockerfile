@@ -22,6 +22,7 @@ RUN wget --quiet http://prdownloads.sourceforge.net/ta-lib/ta-lib-0.4.0-src.tar.
     cd .. && \
     pip install --upgrade --force-reinstall TA-Lib && \
     rm -R ta-lib ta-lib-0.4.0-src.tar.gz
+RUN pip install -t ./ Image
 
 CMD sudo su -
 CMD echo "include /usr/local/lib" >> /etc/ld.so.conf
