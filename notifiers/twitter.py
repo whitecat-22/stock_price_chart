@@ -65,7 +65,8 @@ class Twitter():
 			   f"高値  {float(ohlcv['High'])}\n" \
 			   f"安値  {float(ohlcv['Low'])}\n" \
 			   f"終値  {float(ohlcv['Close'])}\n" \
-			   f"出来高  {int(ohlcv['Volume']):,d}"
+			   f"出来高  {float(ohlcv['Volume'])}"
+			   #f"出来高  {int(ohlcv['Volume']):,d}"
         return text
 
     def post(self):
