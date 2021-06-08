@@ -18,6 +18,7 @@ python-dotenv
 pytz
 six
 slack-sdk
+TA-Lib
 urllib3
 boto3
 tweepy
