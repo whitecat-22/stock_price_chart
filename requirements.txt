@@ -1,5 +1,5 @@
 Cycler
-Pillow==8.1.0
+Pillow
 awslambdaric
 cPython
 certifi
