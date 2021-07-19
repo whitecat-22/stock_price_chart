@@ -27,8 +27,8 @@ from notifiers import twitter
 import json
 import logging
 
-import yfinance as yf
-yf.pdr_override()
+#import yfinance as yf
+#yf.pdr_override()
 
 # settins for logging
 logger = logging.getLogger()
@@ -203,14 +203,8 @@ def generate_csv_with_datareader():
     start_date = today - relativedelta(months=6)
     end_date = today + relativedelta(days=1)
     # yahoofinanceのライブラリ経由でAPIを叩く(stock_codeは環境変数で株コードを指定)
-    #df = data.DataReader(stock_code, 'yahoo', start_date, today)
-    df = data.get_data_yahoo(stock_code, start=start_date, end=end_date)
-    """
-    panda-datareaderが使えない間は、データをダウンロードしてvenvフォルダ直下に配置し、この行を使う↓
-    API;（”https://query1.finance.yahoo.com/v8/finance/chart/%5EN225?range=6mo&interval=1d")
-
-    df = pd.read_csv(f"{stock_code}.csv", index_col='Date', parse_dates=True)
-    """
+    df = data.DataReader(stock_code, 'yahoo', start_date, today)
+    #df = data.get_data_yahoo(stock_code, start=start_date, end=end_date)
     df = df[['High', 'Low', 'Open', 'Close', 'Adj Close', 'Volume']]
     df.tail()
 
@@ -245,7 +239,7 @@ def lambdahandler(event, context):
             # Send only the most recent data to Slack notification
             if i == 0:
                 slack.Slack(today, row).post()
-                twitter.Twitter(today, row).post()
+                #twitter.Twitter(today, row).post()
 
     return {
         'statusCode': 200,

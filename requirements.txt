@@ -22,4 +22,4 @@ TA-Lib
 urllib3
 boto3
 tweepy
-yfinance
+#yfinance
