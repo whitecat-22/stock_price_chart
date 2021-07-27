@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 # Import WebClient from Python SDK (github.com/slackapi/python-slack-sdk)
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
+from decimal import Decimal, ROUND_HALF_UP
 
 dotenv_path = join(dirname(__file__), '.env')
 #load_dotenv(dotenv_path)
@@ -51,14 +52,23 @@ class Slack():
         }
         :return: String
         """
+        open_ = Decimal(str(ohlcv['Open'])).quantize(
+            Decimal('0.01'), rounding=ROUND_HALF_UP)
+        high_ = Decimal(str(ohlcv['High'])).quantize(
+            Decimal('0.01'), rounding=ROUND_HALF_UP)
+        low_ = Decimal(str(ohlcv['Low'])).quantize(
+            Decimal('0.01'), rounding=ROUND_HALF_UP)
+        close_ = Decimal(str(ohlcv['Close'])).quantize(
+            Decimal('0.01'), rounding=ROUND_HALF_UP)
+
         text = f"本日は{self.date.strftime('%Y年%m月%d日')}です。\n" \
                f"取得可能な最新日付の株価情報をお知らせします。 \n\n"\
                f"*銘柄* {str(stock_code)}\n" \
                f"*日付* {str(ohlcv['Date'])}\n" \
-               f"*始値* {float(ohlcv['Open'])}\n" \
-			   f"*高値* {float(ohlcv['High'])}\n" \
-			   f"*安値* {float(ohlcv['Low'])}\n" \
-			   f"*終値* {float(ohlcv['Close'])}\n" \
+               f"*始値* {float(open_)}\n" \
+               f"*高値* {float(high_)}\n" \
+			   f"*安値* {float(low_)}\n" \
+			   f"*終値* {float(close_)}\n" \
 			   f"*出来高* {float(ohlcv['Volume'])}"
 			   #f"*出来高* {int(ohlcv['Volume']):,d}"
         return text
