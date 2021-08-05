@@ -1,8 +1,10 @@
 version: '3'
+
 services:
-  talib:
-    restart: always
+  ecr-lambda-stock-price-chart:
     build: .
-    container_name: 'talib'
+    restart: always
     working_dir: '/root/'
     tty: true
+    image: ecr-lambda-stock-price-chart
+
