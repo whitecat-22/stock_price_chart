@@ -17,7 +17,7 @@
 
 - Slackへ通知した結果
 
-![https://github.com/whitecat-22/stock_price_chart/blob/main/Slack_20210808.PNG](https://github.com/whitecat-22/stock_price_chart/blob/main/Slack_20210808.PNG)
+![https://github.com/whitecat-22/stock_price_chart/blob/main/slack_20210808.PNG](https://github.com/whitecat-22/stock_price_chart/blob/main/slack_20210808.PNG)
 
 　
 
