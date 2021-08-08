@@ -41,6 +41,7 @@ logger.setLevel(logging.INFO)
 # Load env variants
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
+load_dotenv(verbose=True)
 stock_code = os.environ.get("STOCK_CODE")
 
 # Get today's date for getting the stock price and csv&image filename
@@ -52,13 +53,6 @@ if not os.path.isdir('/tmp'):
 
 FILENAME = '%s.csv' % str(today)
 
-
-# Import WebClient from Python SDK (github.com/slackapi/python-slack-sdk)
-dotenv_path = join(dirname(__file__), '.env')
-#load_dotenv(dotenv_path)
-load_dotenv(verbose=True)
-load_dotenv(dotenv_path)
-stock_code = os.environ.get("STOCK_CODE")
 
 """
 json: Format the data to be sent by the SLack API into JSON
@@ -135,7 +129,6 @@ class Slack():
             f"*安値* {float(low_)}\n" \
             f"*終値* {float(close_)}\n" \
             f"*出来高* {float(ohlcv['Volume'])}"
-   #f"*出来高* {int(ohlcv['Volume']):,d}"
         return text
 
     def post(self):
@@ -207,7 +200,6 @@ class Twitter():
                f"安値  {float(low_)}\n" \
                f"終値  {float(close_)}\n" \
             f"出来高  {float(ohlcv['Volume'])}"
-   #f"出来高  {int(ohlcv['Volume']):,d}"
         return text
 
     def post(self):
