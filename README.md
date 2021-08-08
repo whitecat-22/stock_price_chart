@@ -11,7 +11,7 @@
 
 - ^N225 の直近6ヶ月間の株価と出来高の推移をチャートにしたもの
 
-![https://github.com/whitecat-22/stock_price_chart/blob/main/tmp/2021-06-21.png](https://github.com/whitecat-22/stock_price_chart/blob/main/tmp/2021-06-21.png)
+![https://github.com/whitecat-22/stock_price_chart/blob/main/%E4%B8%80%E7%9B%AE%E5%9D%87%E8%A1%A1%E8%A1%A8_20210808.png](https://github.com/whitecat-22/stock_price_chart/blob/main/%E4%B8%80%E7%9B%AE%E5%9D%87%E8%A1%A1%E8%A1%A8_20210808.png)
 
 　
 
