@@ -5,7 +5,7 @@
 
 　
 
-[Python&Lambda(+ServerlessFramework)で指定した企業の株価データとチャート図を定期的にSlack通知する](https://zenn.dev/whitecat_22/articles/aa413e426246e5)
+[日本発祥のテクニカル指標「一目均衡表」を通知してみた【Python】](https://zenn.dev/whitecat_22/articles/344d60b810b77b)
 
 　
 
