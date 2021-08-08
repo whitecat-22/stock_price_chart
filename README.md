@@ -17,10 +17,10 @@
 
 - Slackへ通知した結果
 
-![https://github.com/whitecat-22/stock_price_chart/blob/main/Slack_20210621.PNG](https://github.com/whitecat-22/stock_price_chart/blob/main/Slack_20210621.PNG)
+![https://github.com/whitecat-22/stock_price_chart/blob/main/Slack_20210808.PNG](https://github.com/whitecat-22/stock_price_chart/blob/main/Slack_20210808.PNG)
 
 　
 
 - twitterへ投稿した結果
 
-![https://github.com/whitecat-22/stock_price_chart/blob/main/Twitter_20210621.PNG](https://github.com/whitecat-22/stock_price_chart/blob/main/Twitter_20210621.PNG)
+![https://github.com/whitecat-22/stock_price_chart/blob/main/twitter_20210808.PNG](https://github.com/whitecat-22/stock_price_chart/blob/main/twitter_20210808.PNG)
