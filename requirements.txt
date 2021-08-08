@@ -9,7 +9,7 @@ kiwisolver
 lxml
 matplotlib
 mplfinance
-numpy
+#numpy
 pandas-datareader
 pandas
 pyparsing
@@ -18,8 +18,8 @@ python-dotenv
 pytz
 six
 slack-sdk
-TA-Lib
+#TA-Lib
 urllib3
 boto3
 tweepy
-#yfinance
+aiohttp
