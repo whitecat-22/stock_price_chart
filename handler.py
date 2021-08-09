@@ -122,13 +122,13 @@ class Slack():
 
         text = f"本日は{self.date.strftime('%Y年%m月%d日')}です。\n" \
                f"取得可能な最新日付の株価情報をお知らせします。 \n\n"\
-               f"*銘柄* {str(stock_code)}\n" \
-               f"*日付* {str(ohlcv['Date'])}\n" \
-               f"*始値* {float(open_)}\n" \
-               f"*高値* {float(high_)}\n" \
-            f"*安値* {float(low_)}\n" \
-            f"*終値* {float(close_)}\n" \
-            f"*出来高* {float(ohlcv['Volume'])}"
+               f"*銘柄*  {str(stock_code)}\n" \
+               f"*日付*  {str(ohlcv['Date'])}\n" \
+               f"*始値*  {float(open_)}\n" \
+               f"*高値*  {float(high_)}\n" \
+               f"*安値*  {float(low_)}\n" \
+               f"*終値*  {float(close_)}\n" \
+               f"*出来高*  {float(ohlcv['Volume'])}"
         return text
 
     def post(self):
@@ -199,7 +199,7 @@ class Twitter():
                f"高値  {float(high_)}\n" \
                f"安値  {float(low_)}\n" \
                f"終値  {float(close_)}\n" \
-            f"出来高  {float(ohlcv['Volume'])}"
+               f"出来高  {float(ohlcv['Volume'])}"
         return text
 
     def post(self):
