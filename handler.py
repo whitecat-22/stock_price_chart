@@ -245,7 +245,7 @@ def generate_stock_chart_image():
     dataframe['basic_line'] = (max26 + min26) / 2
 
     dataframe.tail()
-
+    """
     plt.figure(figsize=(16, 6))
     plt.plot(dataframe['basic_line'], label='basic')
     plt.xlabel('Date')
@@ -253,7 +253,7 @@ def generate_stock_chart_image():
     plt.legend()
     plt.grid()
     #plt.show()
-
+    """
     # 転換線
     high9 = high.rolling(window=9).max()
     low9 = low.rolling(window=9).min()
@@ -261,7 +261,7 @@ def generate_stock_chart_image():
     dataframe['turn_line'] = (high9 + low9) / 2
 
     dataframe.tail()
-
+    """
     plt.figure(figsize=(16, 6))
     plt.plot(dataframe['basic_line'], label='basic')
     plt.plot(dataframe['turn_line'], label='turn')
@@ -270,7 +270,7 @@ def generate_stock_chart_image():
     plt.legend()
     plt.grid()
     #plt.show()
-
+    """
     # 雲形
     dataframe['span1'] = (dataframe['basic_line'] + dataframe['turn_line']) / 2
 
@@ -280,7 +280,7 @@ def generate_stock_chart_image():
     dataframe['span2'] = (high52 + low52) / 2
 
     dataframe.tail()
-
+    """
     plt.figure(figsize=(16, 6))
     plt.plot(dataframe['basic_line'], label='basic')
     plt.plot(dataframe['turn_line'], label='turn')
@@ -291,12 +291,12 @@ def generate_stock_chart_image():
     plt.legend()
     plt.grid()
     #plt.show()
-
+    """
     # 遅行線
     dataframe['slow_line'] = dataframe['Adj Close'].shift(-25)
 
     dataframe.head()
-
+    """
     plt.figure(figsize=(16, 6))
     plt.plot(dataframe['basic_line'], label='basic')
     plt.plot(dataframe['turn_line'], label='turn')
@@ -308,7 +308,7 @@ def generate_stock_chart_image():
     plt.legend()
     plt.grid()
     #plt.show()
-
+    """
     # ボリンジャーバンド用のdataframe追加
     dataframe["upper"], dataframe["middle"], dataframe["lower"] = ta.BBANDS(
         dataframe['Adj Close'], timeperiod=25, nbdevup=2, nbdevdn=2, matype=0)
@@ -341,7 +341,7 @@ def generate_stock_chart_image():
             mpf.make_addplot(dataframe['turn_line']),  # 転換線
             mpf.make_addplot(dataframe['slow_line']),  # 遅行線
             ]
-
+    """
     # 保存
     mpf.plot(dataframe, type='candle', addplot=apds, figsize=(30, 10), style='sas',
              volume=True, volume_panel=3, panel_ratios=(5, 2, 2, 1), savefig=f"/tmp/{str(today)}.png")
@@ -349,11 +349,12 @@ def generate_stock_chart_image():
     # ローソク足
     mpf.plot(dataframe, type='candle', figsize=(16, 6),
              style='sas', xrotation=0, volume=True, addplot=apds)
-
+    """
     """
     mplfinanceに凡例を追加する方法は現状これしかないようです(https://github.com/matplotlib/mplfinance/issues/181)
     mplfinanceのfill_between(https://github.com/matplotlib/mplfinance/blob/master/examples/plot_customizations.ipynb)
     """
+    labels = ["basic", "turn", "slow", "span"]
 
     fig, ax = mpf.plot(dataframe, type='candle', figsize=(16, 9),
                        style='sas', xrotation=0, volume=True, addplot=apds, returnfig=True,
@@ -362,9 +363,9 @@ def generate_stock_chart_image():
                            y1=dataframe['span1'].values, y2=dataframe['span2'].values, alpha=0.5, color='gray'),
                        savefig=f"/tmp/{str(today)}.png"
                        )
-    #plt.show()
-    labels = ["basic", "turn", "slow", "span"]
     ax[0].legend(labels)
+    #plt.grid()
+    #plt.show()
     """
     mpf.plot(dataframe, type='candle', figratio=(12, 4),
              volume=True, mav=(5, 25), style='sas',
