@@ -7,7 +7,9 @@
 
 ### 執筆記事：日本発祥のテクニカル指標「一目均衡表」を通知してみた【Python】
 
-<a href="https://zenn.dev/whitecat_22/articles/344d60b810b77b" src="https://github.com/whitecat-22/stock_price_chart/blob/main/zenn.png"></a>
+<a href="https://zenn.dev/whitecat_22/articles/344d60b810b77b">
+  <img src="https://github.com/whitecat-22/stock_price_chart/blob/main/zenn.png">
+</a>
 
 　
 
