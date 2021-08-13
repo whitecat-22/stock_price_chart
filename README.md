@@ -20,7 +20,7 @@
   - ECR
   - EventBridge
   - CloudWatchLogs
-　
+
 　
 
 - ^N225 の直近6ヶ月間の株価と出来高の推移をチャートにしたもの
