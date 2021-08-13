@@ -15,13 +15,20 @@
 
 ### 使用技術
 
+- Python
+
 - AWS
   - Lambda
   - ECR
   - EventBridge
-  - CloudWatchLogs
+  - SNS
+  - CloudTrailLogs
 
-　
+- Docker
+
+
+
+### 実行結果
 
 - ^N225 の直近6ヶ月間の株価と出来高の推移をチャートにしたもの
 
