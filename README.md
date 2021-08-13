@@ -4,6 +4,14 @@
 - データソース：https://finance.yahoo.com/
 
 　
+### 使用技術
+
+- AWS
+  - Lambda
+  - ECR
+  - EventBridge
+  - CloudWatchLogs
+　
 
 ### 執筆記事：日本発祥のテクニカル指標「一目均衡表」を通知してみた【Python】
 
