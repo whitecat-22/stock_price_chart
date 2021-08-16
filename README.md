@@ -1,6 +1,6 @@
 # stock_price_chart
 
-指定した銘柄の株価（直近から6ヶ月前まで）を取得し、作成した株価と出来高のチャートをSlack/twitterへ定刻で通知します。  
+指定した銘柄の株価（直近から6ヶ月前まで）を pandas-datareader 取得し、作成した株価と出来高のチャートをSlack/twitterへ定刻で通知します。  
 - データソース：https://finance.yahoo.com/
 
 　
@@ -15,7 +15,7 @@
 
 ### 使用技術
 
-- Python
+- Python 3.8
 
 - AWS
   - Lambda
@@ -26,11 +26,11 @@
 
 - Docker
 
-
+　
 
 ### 実行結果
 
-- ^N225 の直近6ヶ月間の株価と出来高の推移をチャートにしたもの
+- ^N225(日経平均株価) の直近6ヶ月間の株価と出来高の推移をチャートにしたもの
 
 ![https://github.com/whitecat-22/stock_price_chart/blob/main/%E4%B8%80%E7%9B%AE%E5%9D%87%E8%A1%A1%E8%A1%A8_20210808.png](https://github.com/whitecat-22/stock_price_chart/blob/main/%E4%B8%80%E7%9B%AE%E5%9D%87%E8%A1%A1%E8%A1%A8_20210808.png)
 
