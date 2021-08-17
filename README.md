@@ -1,11 +1,12 @@
 # stock_price_chart
 
-指定した銘柄の株価（直近から6ヶ月前まで）を pandas-datareader 取得し、作成した株価と出来高のチャートをSlack/twitterへ定刻で通知します。  
+指定した銘柄の株価（直近から6ヶ月前まで）を pandas-datareader 取得し、作成した株価と出来高のチャートをSlack/twitterへ定刻で通知します。
+
 - データソース：https://finance.yahoo.com/
 
 　
 
-### 執筆記事：日本発祥のテクニカル指標「一目均衡表」を通知してみた【Python】
+## 執筆記事：　日本発祥のテクニカル指標「一目均衡表」を通知してみた【Python】
 
 <a href="https://zenn.dev/whitecat_22/articles/344d60b810b77b">
   <img src="https://github.com/whitecat-22/stock_price_chart/blob/main/zenn.png">
