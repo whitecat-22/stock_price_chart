@@ -1,4 +1,4 @@
-FROM public.ecr.aws/lambda/python:3.8
+FROM public.ecr.aws/lambda/python:3.9
 ENV AWS_DEFAULT_REGION ap-northeast-1
 
 # install build libs
