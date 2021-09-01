@@ -8,7 +8,7 @@
 
 　
 
-## 執筆記事：　日本発祥のテクニカル指標「一目均衡表」を通知してみた【Python】
+## ◆執筆記事：　日本発祥のテクニカル指標「一目均衡表」を通知してみた【Python】
 
 <a href="https://zenn.dev/whitecat_22/articles/344d60b810b77b">
   <img src="https://github.com/whitecat-22/stock_price_chart/blob/main/zenn.png">
@@ -16,7 +16,7 @@
 
 　
 
-### 使用技術
+### ◆使用技術
 
 - Python 3.9
 
@@ -31,7 +31,7 @@
 
 　
 
-### 実行結果
+### ◆実行結果
 
 - ^N225(日経平均株価) の直近6ヶ月間の株価と出来高の推移をチャートにしたもの
 
