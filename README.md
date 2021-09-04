@@ -22,9 +22,9 @@
 
 - AWS
   - Lambda
-  - ECR
+  - ECR (Elastic Container Registry)
   - EventBridge
-  - SNS
+  - SNS (Simple Notification Service)
   - CloudTrailLogs
 
 - Docker
