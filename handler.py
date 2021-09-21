@@ -44,6 +44,8 @@ load_dotenv(dotenv_path)
 load_dotenv(verbose=True)
 stock_code = os.environ.get("STOCK_CODE")
 
+is_today = 'N'
+
 # Get today's date for getting the stock price and csv&image filename
 today = datetime.date.today()
 
@@ -373,6 +375,7 @@ def generate_stock_chart_image():
     """
 
 def generate_csv_with_datareader():
+    global is_today
     """
     Generate a csv file of OHLCV with date with yahoofinance API
     """
@@ -390,8 +393,14 @@ def generate_csv_with_datareader():
     df.to_csv(f"/tmp/{str(today)}.csv")
     # print(df)
 
+    wk_date = df.index[0].strftime('%Y-%m-%d')
+    wk_today = today.strftime('%Y-%m-%d')
+
+    if wk_date == wk_today:
+        is_today = 'Y'
 
 def lambdahandler(event, context):
+    global is_today
     """
     lambda_handler
     """
@@ -403,20 +412,23 @@ def lambdahandler(event, context):
     The main function that will be executed when this Python file is executed
     """
     generate_csv_with_datareader()
-    generate_stock_chart_image()
 
-    #if "challenge" in event["body"]:
-    #    return event["body"]["challenge"]
+    if is_today == 'Y':
 
-    with open(f"/tmp/{str(today)}.csv", 'r', encoding="utf-8") as file:
-        # Skip header row
-        reader = csv.reader(file)
-        header = next(reader)
-        for i, row in enumerate(csv.DictReader(file, header)):
-            # Send only the most recent data to Slack notification
-            if i == 0:
-                Slack(today, row).post()
-                Twitter(today, row).post()
+        generate_stock_chart_image()
+
+        #if "challenge" in event["body"]:
+        #    return event["body"]["challenge"]
+
+        with open(f"/tmp/{str(today)}.csv", 'r', encoding="utf-8") as file:
+            # Skip header row
+            reader = csv.reader(file)
+            header = next(reader)
+            for i, row in enumerate(csv.DictReader(file, header)):
+                # Send only the most recent data to Slack notification
+                if i == 0:
+                    Slack(today, row).post()
+                    Twitter(today, row).post()
 
     return {
         'statusCode': 200,
