@@ -4,7 +4,7 @@
 
 - 銘柄：　　　　　日経平均株価(^N225)　　　　　←環境変数にて設定
 
-- データソース：　https://finance.yahoo.com/　←株価情報の取得は pandas-datareaderを利用
+- データソース：　https://finance.yahoo.com/　　←株価情報の取得は pandas-datareaderを利用
 
 　
 
