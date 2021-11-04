@@ -4,7 +4,7 @@
 
 - 銘柄：　　　　　日経平均株価([^N225](https://finance.yahoo.com/quote/%5EN225/history?p=%5EN225))　　　　←環境変数にて設定
 
-- データソース：　[https://finance.yahoo.com/](https://finance.yahoo.com/)　　←株価情報の取得は pandas-datareaderを利用
+- データソース：　[https://finance.yahoo.com/](https://finance.yahoo.com/)　　←株価情報の取得は [pandas-datareader](https://github.com/pydata/pandas-datareader)を利用
 
 　
 
