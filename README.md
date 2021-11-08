@@ -7,6 +7,9 @@
 - データソース：　[https://finance.yahoo.com/](https://finance.yahoo.com/)　　←株価情報の取得は [pandas-datareader](https://github.com/pydata/pandas-datareader)を利用
 
 　
+一目均衡表の作成には、mplfinance のほか、TA-Lib を使用しています。
+
+　
 
 ## ◆執筆記事：　[日本発祥のテクニカル指標「一目均衡表」を通知してみた【Python】](https://zenn.dev/whitecat_22/articles/344d60b810b77b)
 
