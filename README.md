@@ -34,6 +34,19 @@
 
 　
 
+### ◆主な利用ライブラリ：
+
+- numpy
+- pandas
+- pandas-datareader
+- mplfinance
+- TA-Lib
+- slack-sdk
+- tweepy
+- boto3
+
+　
+
 ### ◆実行結果：
 
 - ^N225(日経平均株価) の直近6ヶ月間の株価と出来高の推移をチャートにしたもの
