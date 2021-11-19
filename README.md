@@ -1,6 +1,6 @@
 # stock_price_chart
 
-指定した銘柄の株価（直近から6ヶ月前まで）を pandas-datareader により取得し、作成した株価と出来高のチャートを平日の定刻(JST 15:30) ＜※但し、取引所休場日を除く※＞ にSlack/twitterへ定刻で通知します。
+**指定した銘柄の株価（直近から6ヶ月前まで）を pandas-datareader により取得し、作成した株価と出来高のチャートを平日の定刻(JST 15:30) ＜※但し、取引所休場日を除く※＞ にSlack/twitterへ定刻で通知します。**
 
 - 銘柄：　　　　　日経平均株価([^N225](https://finance.yahoo.com/quote/%5EN225/history?p=%5EN225))　　　　　←環境変数にて設定
 
