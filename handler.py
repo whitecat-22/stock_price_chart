@@ -2,7 +2,7 @@ try:
     #from notifiers import unzip_requirements
     import unzip_requirements
 except ImportError:
-    print('Import Error - unzip_requirements')
+    print("Import Error - unzip_requirements")
     pass
 except Exception as e:
     print(e)
@@ -39,21 +39,21 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 # Load env variants
-dotenv_path = join(dirname(__file__), '.env')
+dotenv_path = join(dirname(__file__), ".env")
 load_dotenv(dotenv_path)
 load_dotenv(verbose=True)
 stock_code = os.environ.get("STOCK_CODE")
 
-is_today = 'N'
+is_today = "N"
 
-# Get today's date for getting the stock price and csv&image filename
+# Get today"s date for getting the stock price and csv&image filename
 today = datetime.date.today()
 
 # tmp directory is present by default on Cloud Functions, so guard it
-if not os.path.isdir('/tmp'):
-    os.mkdir('/tmp')
+if not os.path.isdir("/tmp"):
+    os.mkdir("/tmp")
 
-FILENAME = '%s.csv' % str(today)
+FILENAME = "%s.csv" % str(today)
 
 
 """
@@ -72,10 +72,10 @@ json: Format the data to be sent by the Twitter API into JSON
 requests: HTTP client
 """
 # 各種twitterのKeyをセット CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_KEY_SECRET
-CONSUMER_KEY = os.environ.get('CONSUMER_KEY')
-CONSUMER_SECRET = os.environ.get('CONSUMER_SECRET')
-ACCESS_KEY = os.environ.get('ACCESS_KEY')
-ACCESS_KEY_SECRET = os.environ.get('ACCESS_KEY_SECRET')
+CONSUMER_KEY = os.environ.get("CONSUMER_KEY")
+CONSUMER_SECRET = os.environ.get("CONSUMER_SECRET")
+ACCESS_KEY = os.environ.get("ACCESS_KEY")
+ACCESS_KEY_SECRET = os.environ.get("ACCESS_KEY_SECRET")
 
 # tweepyの設定
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
@@ -104,23 +104,23 @@ class Slack():
         Create params data for sending Slack notification with API.
         :param dict[str, str, str, str, str, str] ohlcv:
         :type ohlcv: {
-            'Date': '2020-12-29',
-            'Open': '7620',
-            'High': '8070',
-			'Low': '7610',
-			'Close': '8060',
-			'Volume': '823700'
+            "Date": "2020-12-29",
+            "Open": "7620",
+            "High": "8070",
+			"Low": "7610",
+			"Close": "8060",
+			"Volume": "823700"
         }
         :return: String
         """
-        open_ = Decimal(str(ohlcv['Open'])).quantize(
-            Decimal('0.01'), rounding=ROUND_HALF_UP)
-        high_ = Decimal(str(ohlcv['High'])).quantize(
-            Decimal('0.01'), rounding=ROUND_HALF_UP)
-        low_ = Decimal(str(ohlcv['Low'])).quantize(
-            Decimal('0.01'), rounding=ROUND_HALF_UP)
-        close_ = Decimal(str(ohlcv['Close'])).quantize(
-            Decimal('0.01'), rounding=ROUND_HALF_UP)
+        open_ = Decimal(str(ohlcv["Open"])).quantize(
+            Decimal("0.01"), rounding=ROUND_HALF_UP)
+        high_ = Decimal(str(ohlcv["High"])).quantize(
+            Decimal("0.01"), rounding=ROUND_HALF_UP)
+        low_ = Decimal(str(ohlcv["Low"])).quantize(
+            Decimal("0.01"), rounding=ROUND_HALF_UP)
+        close_ = Decimal(str(ohlcv["Close"])).quantize(
+            Decimal("0.01"), rounding=ROUND_HALF_UP)
 
         text = f"本日は{self.date.strftime('%Y年%m月%d日')}です。\n" \
                f"取得可能な最新日付の株価情報をお知らせします。 \n\n"\
@@ -138,8 +138,8 @@ class Slack():
         POST request to Slack file upload API
         API docs: https://slack.com/api/files.upload
         """
-        # The name of the file you're going to upload
-        file = open(f"/tmp/{str(self.date)}.png", 'rb')
+        # The name of the file you"re going to upload
+        file = open(f"/tmp/{str(self.date)}.png", "rb")
         title = f"{str(self.date)}.png"
         # Call the files.upload method using the WebClient
         # Uploading files requires the `files:write` scope
@@ -175,23 +175,23 @@ class Twitter():
         Create params data for sending Twitter notification with API.
         :param dict[str, str, str, str, str, str] ohlcv:
         :type ohlcv: {
-            'Date': '2020-12-29',
-            'Open': '7620',
-            'High': '8070',
-			'Low': '7610',
-			'Close': '8060',
-			'Volume': '823700'
+            "Date": "2020-12-29",
+            "Open": "7620",
+            "High": "8070",
+			"Low": "7610",
+			"Close": "8060",
+			"Volume": "823700"
         }
         :return: String
         """
-        open_ = Decimal(str(ohlcv['Open'])).quantize(
-            Decimal('0.01'), rounding=ROUND_HALF_UP)
-        high_ = Decimal(str(ohlcv['High'])).quantize(
-            Decimal('0.01'), rounding=ROUND_HALF_UP)
-        low_ = Decimal(str(ohlcv['Low'])).quantize(
-            Decimal('0.01'), rounding=ROUND_HALF_UP)
-        close_ = Decimal(str(ohlcv['Close'])).quantize(
-            Decimal('0.01'), rounding=ROUND_HALF_UP)
+        open_ = Decimal(str(ohlcv["Open"])).quantize(
+            Decimal("0.01"), rounding=ROUND_HALF_UP)
+        high_ = Decimal(str(ohlcv["High"])).quantize(
+            Decimal("0.01"), rounding=ROUND_HALF_UP)
+        low_ = Decimal(str(ohlcv["Low"])).quantize(
+            Decimal("0.01"), rounding=ROUND_HALF_UP)
+        close_ = Decimal(str(ohlcv["Close"])).quantize(
+            Decimal("0.01"), rounding=ROUND_HALF_UP)
 
         text = f"本日は{self.date.strftime('%Y年%m月%d日')}です。\n" \
                f"取得可能な最新日付の株価情報をお知らせします。 \n\n"\
@@ -209,13 +209,13 @@ class Twitter():
         POST request to Twitter API
         API docs: https://developer.twitter.com/en/docs/twitter-api/api-reference-index
         """
-        # The name of the file you're going to upload
-        file = open(f"/tmp/{str(self.date)}.png", 'rb')
+        # The name of the file you"re going to upload
+        file = open(f"/tmp/{str(self.date)}.png", "rb")
         title = f"{str(self.date)}.png"
         # Call the files.upload method using the WebClient
         # Uploading files requires the `files:write` scope
         try:
-            file_names = ['/tmp/' + title, ]
+            file_names = ["/tmp/" + title, ]
             media_ids = []
             for filename in file_names:
                 res = api.media_upload(filename)
@@ -234,97 +234,97 @@ def generate_stock_chart_image():
     dataframe = pd.read_csv(
         f"/tmp/{str(today)}.csv", index_col=0, parse_dates=True)
     # The return value `Date` from yahoofinance is sorted by asc, so change it to desc for plot
-    dataframe = dataframe.sort_values('Date')
+    dataframe = dataframe.sort_values("Date")
     date = dataframe.index
 
     # 基準線
-    high = dataframe['High']
-    low = dataframe['Low']
+    high = dataframe["High"]
+    low = dataframe["Low"]
 
     max26 = high.rolling(window=26).max()
     min26 = low.rolling(window=26).min()
 
-    dataframe['basic_line'] = (max26 + min26) / 2
+    dataframe["basic_line"] = (max26 + min26) / 2
 
     dataframe.tail()
     """
     plt.figure(figsize=(16, 6))
-    plt.plot(dataframe['basic_line'], label='basic')
-    plt.xlabel('Date')
-    plt.ylabel('Price')
+    plt.plot(dataframe["basic_line"], label="basic")
+    plt.xlabel("Date")
+    plt.ylabel("Price")
     plt.legend()
     plt.grid()
-    #plt.show()
+    # plt.show()
     """
     # 転換線
     high9 = high.rolling(window=9).max()
     low9 = low.rolling(window=9).min()
 
-    dataframe['turn_line'] = (high9 + low9) / 2
+    dataframe["turn_line"] = (high9 + low9) / 2
 
     dataframe.tail()
     """
     plt.figure(figsize=(16, 6))
-    plt.plot(dataframe['basic_line'], label='basic')
-    plt.plot(dataframe['turn_line'], label='turn')
-    plt.xlabel('Date')
-    plt.ylabel('Price')
+    plt.plot(dataframe["basic_line"], label="basic")
+    plt.plot(dataframe["turn_line"], label="turn")
+    plt.xlabel("Date")
+    plt.ylabel("Price")
     plt.legend()
     plt.grid()
-    #plt.show()
+    # plt.show()
     """
     # 雲形
-    dataframe['span1'] = (dataframe['basic_line'] + dataframe['turn_line']) / 2
+    dataframe["span1"] = (dataframe["basic_line"] + dataframe["turn_line"]) / 2
 
     high52 = high.rolling(window=52).max()
     low52 = low.rolling(window=52).min()
 
-    dataframe['span2'] = (high52 + low52) / 2
+    dataframe["span2"] = (high52 + low52) / 2
 
     dataframe.tail()
     """
     plt.figure(figsize=(16, 6))
-    plt.plot(dataframe['basic_line'], label='basic')
-    plt.plot(dataframe['turn_line'], label='turn')
-    plt.fill_between(date, dataframe['span1'], dataframe['span2'],
+    plt.plot(dataframe["basic_line"], label="basic")
+    plt.plot(dataframe["turn_line"], label="turn")
+    plt.fill_between(date, dataframe["span1"], dataframe["span2"],
                      facecolor="gray", alpha=0.5, label="span")
-    plt.xlabel('Date')
-    plt.ylabel('Price')
+    plt.xlabel("Date")
+    plt.ylabel("Price")
     plt.legend()
     plt.grid()
-    #plt.show()
+    # plt.show()
     """
     # 遅行線
-    dataframe['slow_line'] = dataframe['Adj Close'].shift(-25)
+    dataframe["slow_line"] = dataframe["Adj Close"].shift(-25)
 
     dataframe.head()
     """
     plt.figure(figsize=(16, 6))
-    plt.plot(dataframe['basic_line'], label='basic')
-    plt.plot(dataframe['turn_line'], label='turn')
-    plt.fill_between(date, dataframe['span1'], dataframe['span2'],
+    plt.plot(dataframe["basic_line"], label="basic")
+    plt.plot(dataframe["turn_line"], label="turn")
+    plt.fill_between(date, dataframe["span1"], dataframe["span2"],
                      facecolor="gray", alpha=0.5, label="span")
-    plt.plot(dataframe['slow_line'], label='slow')
-    plt.xlabel('Date')
-    plt.ylabel('Price')
+    plt.plot(dataframe["slow_line"], label="slow")
+    plt.xlabel("Date")
+    plt.ylabel("Price")
     plt.legend()
     plt.grid()
-    #plt.show()
+    # plt.show()
     """
     # ボリンジャーバンド用のdataframe追加
     dataframe["upper"], dataframe["middle"], dataframe["lower"] = ta.BBANDS(
-        dataframe['Adj Close'], timeperiod=25, nbdevup=2, nbdevdn=2, matype=0)
+        dataframe["Adj Close"], timeperiod=25, nbdevup=2, nbdevdn=2, matype=0)
     dataframe.tail()
-
+    """
     # ボリンジャーバンドプロット
-    apds = [mpf.make_addplot(dataframe['upper'], color='g'),
-            mpf.make_addplot(dataframe['middle'], color='b'),
-            mpf.make_addplot(dataframe['lower'], color='r')
+    apds = [mpf.make_addplot(dataframe["upper"], color="g"),
+            mpf.make_addplot(dataframe["middle"], color="b"),
+             mpf.make_addplot(dataframe["lower"], color="r")
             ]
-
+    """
     # MACD用のdataframe追加
-    dataframe['macd'], dataframe['macdsignal'], dataframe['macdhist'] = ta.MACD(
-        dataframe['Adj Close'], fastperiod=12, slowperiod=26, signalperiod=9)
+    dataframe["macd"], dataframe["macdsignal"], dataframe["macdhist"] = ta.MACD(
+        dataframe["Adj Close"], fastperiod=12, slowperiod=26, signalperiod=9)
     dataframe.tail()
 
     # RSIデータフレーム追加
@@ -332,25 +332,25 @@ def generate_stock_chart_image():
     dataframe.tail()
 
     # 基準線、転換線、雲、遅行線の追加
-    apds = [mpf.make_addplot(dataframe['upper'], color='g'),
-            mpf.make_addplot(dataframe['middle'], color='b'),
-            mpf.make_addplot(dataframe['lower'], color='r'),
-            mpf.make_addplot(dataframe['macdhist'], type='bar',
-                             width=1.0, panel=1, color='gray', alpha=0.5, ylabel='MACD'),
-            mpf.make_addplot(dataframe['RSI'], panel=2,
-                             type='line', ylabel='RSI'),
-            mpf.make_addplot(dataframe['basic_line']),  # 基準線
-            mpf.make_addplot(dataframe['turn_line']),  # 転換線
-            mpf.make_addplot(dataframe['slow_line']),  # 遅行線
+    apds = [mpf.make_addplot(dataframe["upper"], color="g"),
+            mpf.make_addplot(dataframe["middle"], color="b"),
+            mpf.make_addplot(dataframe["lower"], color="r"),
+            mpf.make_addplot(dataframe["macdhist"], type="bar",
+                             width=1.0, panel=1, color="gray", alpha=0.5, ylabel="MACD"),
+            mpf.make_addplot(dataframe["RSI"], panel=2,
+                             type="line", ylabel="RSI"),
+            mpf.make_addplot(dataframe["basic_line"]),  # 基準線
+            mpf.make_addplot(dataframe["turn_line"]),  # 転換線
+            mpf.make_addplot(dataframe["slow_line"]),  # 遅行線
             ]
     """
     # 保存
-    mpf.plot(dataframe, type='candle', addplot=apds, figsize=(30, 10), style='sas',
+    mpf.plot(dataframe, type="candle", addplot=apds, figsize=(30, 10), style="sas",
              volume=True, volume_panel=3, panel_ratios=(5, 2, 2, 1), savefig=f"/tmp/{str(today)}.png")
 
     # ローソク足
-    mpf.plot(dataframe, type='candle', figsize=(16, 6),
-             style='sas', xrotation=0, volume=True, addplot=apds)
+    mpf.plot(dataframe, type="candle", figsize=(16, 6),
+             style="sas", xrotation=0, volume=True, addplot=apds)
     """
     """
     mplfinanceに凡例を追加する方法は現状これしかないようです(https://github.com/matplotlib/mplfinance/issues/181)
@@ -358,19 +358,19 @@ def generate_stock_chart_image():
     """
     labels = ["basic", "turn", "slow", "span"]
 
-    fig, ax = mpf.plot(dataframe, type='candle', figsize=(16, 9),
-                       style='sas', xrotation=0, volume=True, addplot=apds, returnfig=True,
+    fig, ax = mpf.plot(dataframe, type="candle", figsize=(16, 9), title=stock_code,
+                       style="sas", xrotation=0, volume=True, addplot=apds, returnfig=True,
                        volume_panel=3, panel_ratios=(5, 2, 2, 1),
                        fill_between=dict(
-                           y1=dataframe['span1'].values, y2=dataframe['span2'].values, alpha=0.5, color='gray'),
+                           y1=dataframe["span1"].values, y2=dataframe["span2"].values, alpha=0.5, color="gray"),
                        savefig=f"/tmp/{str(today)}.png"
                        )
     ax[0].legend(labels)
-    #plt.grid()
-    #plt.show()
+    plt.grid()
+    # plt.show()
     """
-    mpf.plot(dataframe, type='candle', figratio=(12, 4),
-             volume=True, mav=(5, 25), style='sas',
+    mpf.plot(dataframe, type="candle", figratio=(12, 4),
+             volume=True, mav=(5, 25), style="sas",
              savefig=f"/tmp/{str(today)}.png")
     """
 
@@ -383,21 +383,21 @@ def generate_csv_with_datareader():
     start_date = today - relativedelta(months=6)
     # end_date = today + relativedelta(days=1)
     # yahoofinanceのライブラリ経由でAPIを叩く(stock_codeは環境変数で株コードを指定)
-    df = data.DataReader(stock_code, 'yahoo', start_date, today)
-    #df = data.get_data_yahoo(stock_code, start=start_date, end=end_date)
-    df = df[['High', 'Low', 'Open', 'Close', 'Adj Close', 'Volume']]
-    df.tail()
+    df = data.DataReader(stock_code, "yahoo", start_date, today)
+    # df = data.get_data_yahoo(stock_code, start=start_date, end=end_date)
+    df = df[["High", "Low", "Open", "Close", "Adj Close", "Volume"]]
+    # df.tail()
 
     # APIで取得したデータを一旦CSVファイルにする
-    df = df.sort_values(by='Date', ascending=False)
+    df = df.sort_values(by="Date", ascending=False)
     df.to_csv(f"/tmp/{str(today)}.csv")
     # print(df)
 
-    wk_date = df.index[0].strftime('%Y-%m-%d')
-    wk_today = today.strftime('%Y-%m-%d')
+    wk_date = df.index[0].strftime("%Y-%m-%d")
+    wk_today = today.strftime("%Y-%m-%d")
 
     if wk_date == wk_today:
-        is_today = 'Y'
+        is_today = "Y"
 
 def lambdahandler(event, context):
     global is_today
@@ -406,21 +406,21 @@ def lambdahandler(event, context):
     """
     logging.info(json.dumps(event))
 
-    print('event: {}'.format(event))
-    print('context: {}'.format(context))
+    print("event: {}".format(event))
+    print("context: {}".format(context))
     """
     The main function that will be executed when this Python file is executed
     """
     generate_csv_with_datareader()
 
-    if is_today == 'Y':
+    if is_today == "Y":
 
         generate_stock_chart_image()
 
-        #if "challenge" in event["body"]:
-        #    return event["body"]["challenge"]
+        # if "challenge" in event["body"]:
+        #     return event["body"]["challenge"]
 
-        with open(f"/tmp/{str(today)}.csv", 'r', encoding="utf-8") as file:
+        with open(f"/tmp/{str(today)}.csv", "r", encoding="utf-8") as file:
             # Skip header row
             reader = csv.reader(file)
             header = next(reader)
@@ -431,8 +431,8 @@ def lambdahandler(event, context):
                     Twitter(today, row).post()
 
     return {
-        'statusCode': 200,
-        'body': 'ok'
+        "statusCode": 200,
+        "body": "ok"
     }
 
 
