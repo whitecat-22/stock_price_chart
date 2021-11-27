@@ -8,7 +8,7 @@
 
 　
 
-一目均衡表の作成には、mplfinance のほか、TA-Lib を使用しています。
+一目均衡表の作成には mplfinance のほか、TA-Lib を使用しています。
 
 　
 
