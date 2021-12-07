@@ -40,7 +40,7 @@
 
 - numpy
 - pandas
-- pandas-datareader
+- [pandas-datareader](https://github.com/pydata/pandas-datareader)
 - mplfinance
 - TA-Lib
 - slack-sdk
