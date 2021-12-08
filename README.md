@@ -41,7 +41,7 @@
 - numpy
 - pandas
 - [pandas-datareader](https://github.com/pydata/pandas-datareader)
-- mplfinance
+- [mplfinance](https://github.com/matplotlib/mplfinance)
 - TA-Lib
 - slack-sdk
 - tweepy
