@@ -42,7 +42,7 @@
 - pandas
 - [pandas-datareader](https://github.com/pydata/pandas-datareader)
 - [mplfinance](https://github.com/matplotlib/mplfinance)
-- TA-Lib
+- [TA-Lib](https://ta-lib.org/)
 - slack-sdk
 - tweepy
 - boto3
