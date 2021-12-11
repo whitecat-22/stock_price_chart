@@ -44,7 +44,7 @@
 - [mplfinance](https://github.com/matplotlib/mplfinance)
 - [TA-Lib](https://ta-lib.org/)
 - slack-sdk
-- tweepy
+- [tweepy](https://www.tweepy.org/)
 - boto3
 
 　
