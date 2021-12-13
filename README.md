@@ -45,7 +45,7 @@
 - [TA-Lib](https://ta-lib.org/)
 - [slack-sdk](https://slack.dev/python-slack-sdk/)
 - [tweepy](https://www.tweepy.org/)
-- boto3
+- [boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
 
 　
 
