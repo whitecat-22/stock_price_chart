@@ -39,7 +39,7 @@
 ### ◆主な利用ライブラリ：
 
 - [numpy](https://numpy.org/)
-- pandas
+- [pandas](https://pandas.pydata.org/)
 - [pandas-datareader](https://github.com/pydata/pandas-datareader)
 - [mplfinance](https://github.com/matplotlib/mplfinance)
 - [TA-Lib](https://ta-lib.org/)
