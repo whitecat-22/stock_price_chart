@@ -29,7 +29,7 @@
   - Lambda
   - ECR (Elastic Container Registry)
   - EventBridge
-  - SNS (Simple Notification Service)
+  - [SNS (Simple Notification Service)](https://aws.amazon.com/jp/sns/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc)
   - CloudTrailLogs
 
 - Docker
