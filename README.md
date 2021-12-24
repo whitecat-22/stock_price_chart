@@ -27,7 +27,7 @@
 
 - AWS
   - [Lambda](https://aws.amazon.com/jp/lambda/?nc2=h_ql_prod_serv_lbd)
-  - ECR (Elastic Container Registry)
+  - [ECR (Elastic Container Registry)](https://aws.amazon.com/jp/ecr/?nc2=h_ql_prod_ct_ec2reg)
   - EventBridge
   - [SNS (Simple Notification Service)](https://aws.amazon.com/jp/sns/?whats-new-cards.sort-by=item.additionalFields.postDateTime&whats-new-cards.sort-order=desc)
   - CloudTrailLogs
