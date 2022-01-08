@@ -23,7 +23,7 @@
 
 ### ◆使用技術：
 
-- Python 3.9
+- [Python](https://www.python.org/) 3.9
 
 - AWS
   - [Lambda](https://aws.amazon.com/jp/lambda/?nc2=h_ql_prod_serv_lbd)
