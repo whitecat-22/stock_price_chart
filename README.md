@@ -9,7 +9,7 @@
 　
 
 [一目均衡表](https://ja.wikipedia.org/wiki/%E4%B8%80%E7%9B%AE%E5%9D%87%E8%A1%A1%E8%A1%A8)の作成には mplfinance のほか、TA-Lib を使用しています。  
-⇒ TA-Lib のインストールについては、[コチラ](https://zenn.dev/whitecat_22/articles/9e30d88e31c3ec)を参照ください。  
+⇒ TA-Lib のインストールについては、[【python3】TA-Libをインストールする方法(Windows10)](https://zenn.dev/whitecat_22/articles/9e30d88e31c3ec)を参照ください。  
 
 　
 
