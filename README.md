@@ -51,18 +51,18 @@
 
 ### ◆実行結果：
 
-- ^N225(日経平均株価) の直近6ヶ月間の株価と出来高の推移をチャートにしたもの
+- ^N225(日経平均株価) の直近6ヶ月間の株価と出来高の推移をチャートにしたもの：
 
 ![https://github.com/whitecat-22/stock_price_chart/blob/main/%E4%B8%80%E7%9B%AE%E5%9D%87%E8%A1%A1%E8%A1%A8_20210808.png](https://github.com/whitecat-22/stock_price_chart/blob/main/%E4%B8%80%E7%9B%AE%E5%9D%87%E8%A1%A1%E8%A1%A8_20210808.png)
 
 　
 
-- Slackへ通知した結果
+- Slackへ通知した結果：
 
 ![https://github.com/whitecat-22/stock_price_chart/blob/main/slack_20210808.PNG](https://github.com/whitecat-22/stock_price_chart/blob/main/slack_20210808.PNG)
 
 　
 
-- twitterへ投稿した結果
+- twitterへ投稿した結果：
 
 ![https://github.com/whitecat-22/stock_price_chart/blob/main/twitter_20210808.PNG](https://github.com/whitecat-22/stock_price_chart/blob/main/twitter_20210808.PNG)
