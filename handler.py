@@ -78,10 +78,9 @@ ACCESS_KEY = os.environ.get("ACCESS_KEY")
 ACCESS_KEY_SECRET = os.environ.get("ACCESS_KEY_SECRET")
 
 # tweepyの設定
-auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-auth.set_access_token(ACCESS_KEY, ACCESS_KEY_SECRET)
+auth = tweepy.OAuth1UserHandler(
+    CONSUMER_KEY, CONSUMER_SECRET, ACCESS_KEY, ACCESS_KEY_SECRET)
 api = tweepy.API(auth)
-
 
 class Slack():
     """
