@@ -23,3 +23,4 @@ urllib3
 boto3
 tweepy
 aiohttp
+yfinance

@@ -31,8 +31,8 @@ from slack_sdk import WebClient
 import json
 import logging
 
-#import yfinance as yf
-#yf.pdr_override()
+import yfinance as yf
+yf.pdr_override()
 
 # settins for logging
 logger = logging.getLogger()
@@ -375,15 +375,16 @@ def generate_stock_chart_image():
 
 def generate_csv_with_datareader():
     global is_today
+    # is_today = "Y"  # for test run
     """
     Generate a csv file of OHLCV with date with yahoofinance API
     """
     # 株価推移の開始日を指定(6ヶ月を指定)
     start_date = today - relativedelta(months=6)
-    # end_date = today + relativedelta(days=1)
+    end_date = today + relativedelta(days=1)
     # yahoofinanceのライブラリ経由でAPIを叩く(stock_codeは環境変数で株コードを指定)
-    df = data.DataReader(stock_code, "yahoo", start_date, today)
-    # df = data.get_data_yahoo(stock_code, start=start_date, end=end_date)
+    # df = data.DataReader(stock_code, "yahoo", start_date, today)
+    df = data.get_data_yahoo(stock_code, start=start_date, end=end_date)
     df = df[["High", "Low", "Open", "Close", "Adj Close", "Volume"]]
     # df.tail()
 
